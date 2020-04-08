@@ -1,0 +1,13 @@
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\bin\Debug\SevenSegmentTestComponent.exe.config
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\bin\Debug\SevenSegmentTestComponent.exe
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\bin\Debug\SevenSegmentTestComponent.pdb
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\bin\Debug\SevenSegment.dll
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\bin\Debug\SevenSegment.pdb
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\obj\Debug\SevenSegmentTestComponent.Form1.resources
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\obj\Debug\SevenSegmentTestComponent.Properties.Resources.resources
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\obj\Debug\SevenSegmentTestComponent.csproj.GenerateResource.cache
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\obj\Debug\SevenSegmentTestComponent.csproj.CoreCompileInputs.cache
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\obj\Debug\SevenSegmentTestComponent.csproj.CopyComplete
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\obj\Debug\SevenSegmentTestComponent.exe
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\obj\Debug\SevenSegmentTestComponent.pdb
+C:\Users\Kuba\source\repos\ClassLibrary2\SevenSegmentTestComponent\obj\Debug\SevenSegmentTestComponent.csprojAssemblyReference.cache
