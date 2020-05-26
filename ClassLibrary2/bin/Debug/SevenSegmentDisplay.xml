@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SevenSegment</name>
+    </assembly>
+    <members>
+        <member name="T:SevenSegment.SevenSegments">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SevenSegment.SevenSegments.SetSpaceForAllSegments">
+            <summary>
+            Wydzialnie miejsca dla segmentów
+            </summary>
+        </member>
+        <member name="M:SevenSegment.SevenSegments.NumberOfSegments(System.Int32)">
+            <summary>
+            inicjalizacja ilosci segmentów
+            </summary>
+            <param name="number"></param>
+        </member>
+        <member name="M:SevenSegment.SevenSegments.RefreshSegment">
+             <summary>
+             
+            odświeżanie właściwości dla komponentów
+             </summary>
+        </member>
+        <member name="M:SevenSegment.SevenSegments.RefreshMinus">
+            <summary>
+            Odświeżanie minusa, należy go odświeżać osobno
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.BackgroundColor">
+            <summary>
+            settery i gettery dla właściwości
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.SegmentOn">
+            <summary>
+            
+            
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.SegmentOff">
+            <summary>
+            
+            
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.AlaramUp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.AlarmDown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.SegmentsWidth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.AlarmMinimum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.AlarmMaximum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.CountOfSegments">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.Padd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SevenSegment.SevenSegments.SevenResize(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SevenSegment.SevenSegments.Alarm(System.Double)">
+            <summary>
+            alaram dla komponentu, dźwięk ostrzegwaczy + zmiana tła
+            </summary>
+            <param name="d"></param>
+        </member>
+        <member name="M:SevenSegment.SevenSegments.Minus(System.Double,System.String)">
+            <summary>
+             metoda odpowiedzialna za znak minus, właściwości oraz stan wyświetlania
+            </summary>
+            <param name="value"></param>
+            <param name="valueToParse"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SevenSegment.SevenSegments.Value">
+            <summary>
+            metoda nadawania wartości komponentom 
+            </summary>
+        </member>
+        <member name="M:SevenSegment.SevenSegments.InitializeComponent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SevenSegment.SevenSegment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SevenSegment.SevenSegment.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:SevenSegment.SevenSegment.SizeDisplay(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:SevenSegment.SevenSegment.InitializeComponent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SevenSegment.SevenSegment.DrawSegment">
+            <summary>
+            Drawing points.
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegment.Value">
+            <summary>
+            for divider value
+            </summary>
+        </member>
+        <member name="M:SevenSegment.SevenSegment.SwitchDisplay">
+            <summary>
+            void for switch On or Off segments
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegment.segmentForMinus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegment.ShowDot">
+            <summary>
+            boolean for dot
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegment.MarginSegment">
+            <summary>
+            margin
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegment.Background">
+            <summary>
+            Color Background 
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegment.SegmentON">
+            <summary>
+            Switch On segment
+            </summary>
+        </member>
+        <member name="P:SevenSegment.SevenSegment.SegmentOFF">
+            <summary>
+            Switch OFF segment
+            </summary>
+        </member>
+        <member name="M:SevenSegment.SevenSegment.SevenSegment_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+    </members>
+</doc>

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
+
 /*
  * 
  * Author: Jakub Wójcik
@@ -11,6 +12,9 @@ using System.Drawing.Drawing2D;
 
 namespace SevenSegment
 {
+    /// <summary>
+    /// 
+    /// </summary>
    public class SevenSegment : UserControl
     {
         private int height = 80;
@@ -18,7 +22,7 @@ namespace SevenSegment
         private int margin = 6;
         private Color background = Color.Black;
         private Color segmentON = Color.Red;
-        private Color segmentOFF = Color.White;
+        private Color segmentOFF = Color.Silver;
         private Color segmentA = Color.Red;
         private Color segmentB = Color.Red;
         private Color segmentC = Color.Red;
@@ -29,19 +33,11 @@ namespace SevenSegment
         private Color dot = Color.Red;
         private Point[][] segmentPoint;
         private bool showDot = true;
-        private ushort zero = 0x3F;
-        private ushort one = 0x6;
-        private ushort two = 0x5B;
-        private ushort three = 0x4F;
-        private ushort four = 0x66;
-        private ushort five = 0x6D;
-        private ushort six = 0x7D;
-        private ushort seven = 0x7;
-        private ushort eight = 0x7F;
-        private ushort nine = 0x6F;
-        private ushort error = 0x0;
-        private int valueDisplay=9;
-        private int valuedisplayReturn;
+        private bool showMinus = false;
+
+        private ushort[] digit = { 0x3F, 0x6, 0x5B, 0x4F, 0x66 , 0x6D, 0x7D, 0x7, 0x7F, 0x6F, 0x0 };
+        private int valueDisplay;
+        private String valuedisplayReturn;
 
         /// <summary>
         /// Constructor
@@ -69,11 +65,18 @@ namespace SevenSegment
             segmentPoint[6] = new Point[6];
             DrawSegment();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public void SizeDisplay(int x, int y)
         {
             Size = new Size(x, y);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         private void InitializeComponent()
         {
             this.SuspendLayout();
@@ -182,60 +185,60 @@ namespace SevenSegment
         /// <summary>
         /// for divider value
         /// </summary>
-        public int Value
+        public string Value
         {
 
             get { return valuedisplayReturn; }
             set
             {
                 valuedisplayReturn = value;
-                valueDisplay = valuedisplayReturn;
                
                
-                    if (value == 0)
+                    if (value == "0")
                     {
-                        valueDisplay = (int)zero;
+                        valueDisplay = (int)digit[0];
                     }
-                    else if (value == 1)
+                    else if (value == "1")
                     {
-                        valueDisplay = (int)one;
+                        valueDisplay = (int)digit[1];
                     }
-                    else if (value == 2)
+                    else if (value == "2")
                     {
-                        valueDisplay = (int)two;
+                        valueDisplay = (int)digit[2];
                     }
-                    else if (value == 3)
+                    else if (value == "3")
                     {
-                        valueDisplay = (int)three;
+                        valueDisplay = (int)digit[3];
                     }
-                    else if (value == 4)
+                    else if (value == "4")
                     {
-                        valueDisplay = (int)four;
+                        valueDisplay = (int)digit[4];
                     }
-                    else if (value == 5)
+                    else if (value == "5")
                     {
-                        valueDisplay = (int)five;
+                        valueDisplay = (int)digit[5];
                     }
-                    else if (value == 6)
+                    else if (value == "6")
                     {
-                        valueDisplay = (int)six;
+                        valueDisplay = (int)digit[6];
                     }
-                    else if (value == 7)
+                    else if (value == "7")
                     {
-                        valueDisplay = (int)seven;
+                        valueDisplay = (int)digit[7];
                     }
-                    else if (value == 8)
+                    else if (value == "8")
                     {
-                        valueDisplay = (int)eight;
+                        valueDisplay = (int)digit[8];
                     }
-                    else if (value == 9)
+                    else if (value == "9")
                     {
-                        valueDisplay = (int)nine;
+                        valueDisplay = (int)digit[9];
                     }
-                    else 
+                else 
                     {
-                        valueDisplay = (int)error;
+                        valueDisplay = (int)digit[10];
                     }
+
                 SwitchDisplay();
                 Invalidate();
 
@@ -254,6 +257,16 @@ namespace SevenSegment
                 dot = segmentOFF;
             }
 
+            if (showMinus == true)
+            {
+                segmentG = segmentON;
+            }
+            else
+            {
+                segmentG = segmentOFF;
+            }
+
+
             if ((valueDisplay & 0x1) == 0x1)
                 {
                     segmentA = segmentON;
@@ -261,6 +274,7 @@ namespace SevenSegment
                 else
                 {
                     segmentA = segmentOFF;
+
                 }
 
                 if ((valueDisplay & 0x2) == 0x2)
@@ -317,6 +331,41 @@ namespace SevenSegment
                     segmentG = segmentOFF;
                 }
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool segmentForMinus
+        {
+            set
+            {
+                if (value == true)
+                {
+                   
+                    segmentA = background;
+                    segmentB = background;
+                    segmentC = background;
+                    segmentD = background;
+                    segmentE = background;
+                    segmentF = background;
+                    segmentG = segmentON;
+                    dot = background;
+                }
+                if (value == false)
+                {
+                    segmentA = background;
+                    segmentB = background;
+                    segmentC = background;
+                    segmentD = background;
+                    segmentE = background;
+                    segmentF = background;
+                    segmentG = segmentOFF;
+                    dot = background;
+                }
+                Invalidate();
+            }
+        }
         /// <summary>
         /// boolean for dot
         /// </summary>
@@ -367,6 +416,11 @@ namespace SevenSegment
             e.Graphics.Clear(background);
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SevenSegment_Paint(object sender, PaintEventArgs e)
         { 
             //define segment pane
@@ -388,7 +442,6 @@ namespace SevenSegment
 
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.PixelOffsetMode = PixelOffsetMode.Default;
-            //fill our segments and dot.
             e.Graphics.FillPolygon(a, segmentPoint[0]);
             e.Graphics.FillPolygon(b, segmentPoint[1]);
             e.Graphics.FillPolygon(c, segmentPoint[2]);
@@ -396,7 +449,7 @@ namespace SevenSegment
             e.Graphics.FillPolygon(ee, segmentPoint[4]);
             e.Graphics.FillPolygon(f, segmentPoint[5]);
             e.Graphics.FillPolygon(g, segmentPoint[6]);
-            e.Graphics.FillEllipse(dotBrush, width - margin, height - margin, margin, margin);
+            e.Graphics.FillEllipse(dotBrush, 0, height - margin+2,  4, margin);
             e.Graphics.EndContainer(containerState);
         }
     }
