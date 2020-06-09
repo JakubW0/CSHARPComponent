@@ -20,6 +20,7 @@ namespace SevenSegment
     /// </summary>
     public partial class SevenSegments : UserControl
     {
+
         private SevenSegment[] sevenSegment = null;
         private int componentWidth = 50;
         private Color backgroundColor = Color.Black;
@@ -32,8 +33,6 @@ namespace SevenSegment
         private Color segmentOffColor = Color.IndianRed;
         private Padding padd;
         private Double valueSeg = 1.234;
-
-
 
         public SevenSegments()
         {
@@ -57,7 +56,7 @@ namespace SevenSegment
             int segWidth = Width / sevenSegment.Length;
             componentWidth = segWidth;
             int widthIncrement = Width;
-            for (int i = (sevenSegment.Length-1); i >= 0; i--) // -1 poniewaz index jest od 0
+            for (int i = (sevenSegment.Length - 1); i >=0 ; i--) // -1 poniewaz index jest od 0
             {
                 widthIncrement = widthIncrement - segWidth;
                 sevenSegment[i].Left = widthIncrement;
@@ -312,7 +311,7 @@ namespace SevenSegment
                 int valueLength = valueToParse.Length;
                 //długość naszego łańcucha znaków;
            
-                int dott = -1; 
+                int dott = -2; 
                 //gdy nie ma przecinka zmienna dott zostaje na -1 by nigdy nie trafiła do wyświetlenia
                 // zmienna dott jest tak naprawde indexem segmentu który ma zapalić kropke/przecinek
 
@@ -322,33 +321,89 @@ namespace SevenSegment
                     {
                         dott = i + 1;
                       valueToParse =  valueToParse.Remove(i, 1);
-                        valueLength = valueLength - 1;
+                        valueLength = (valueLength - 1);
                     }
                 }
-              
-                for (int i = 1; i <= sevenSegment.Length-1; i++)
-                {//petla zaczyna sie od 1, ponieważ index 0 to minus który jest dodawany w innej metodzie,
-                    if (i <= valueLength) // sprawdzanie czy liczba powinna być zapalona na segmencie
+                int diff = 0;
+
+                if((sevenSegment.Length-1) > valueLength) //sprawdzanie czy dlugosc liczby jest mniejsza od ilosci segmentów
+                {// tak aby liczby pojawialy sie po prawej stronie a po lewej zostaly puste miejsca
+                    dott = 0;
+                    diff = (sevenSegment.Length - 1) - valueLength;
+                    int a = valueLength - 1;
+                    dott = sevenSegment.Length - dott;
+                    string diffValue = ReverseString(value.ToString()); // dopasowac pozycje liczby do segmentu w pętli.
+                    for (int i = 0; i <= diffValue.Length - 1; i++)
+                    {//petla do sprawdzania kropki
+
+                        if (diffValue[i] == ',')
+                        {
+                            dott = sevenSegment.Length-i;
+                            diffValue = diffValue.Remove(i, 1);
+                            valueLength = (diffValue.Length - 1);
+                        }
+                    }
+                    for (int i = sevenSegment.Length-1; i >= 1; i--)
                     {
+           
                         sevenSegment[i].ShowDot = false;
                         if (dott == i) // jeśli numer kropki(index dla segmentu) zgadza się z zmienną inkrementowaną pętli to zapalamy korpka
-                            //linijka nad ifem jest po to by zgasic kropke gdy np nasza liczba się przesuneła z kropka np z 1,34 na 13,4
+                                       //linijka nad ifem jest po to by zgasic kropke gdy np nasza liczba się przesuneła z kropka np z 1,34 na 13,4
                         {
                             sevenSegment[i].ShowDot = true;
                         }
-                   
-                        sevenSegment[i].Value = Char.ToString(valueToParse[i-1]); // przypisanie z indexu łancucha do segmentu i-1 ponieważ zaczeliśmy
-                        // z indexem i = 1 (by nie ruszać segmentu od minusa) a nasz index w łancuchu musi sie zaczynac od 0  
+                        if (a>=0) // sprawdzanie czy liczba powinna być zapalona na segmencie
+                        {
+                            sevenSegment[i].Value = Char.ToString(valueToParse[a]); // przypisanie z indexu łancucha do segmentu i-1 ponieważ zaczeliśmy
+                            a--;                                                  // z indexem i = 1 (by nie ruszać segmentu od minusa) a nasz index w łancuchu musi sie zaczynac od 0  
+                        }
+                        else
+                        {
+                            sevenSegment[i].Value = "error";
+         
+                        }
                     }
-                    else  //jeśli liczba rozmiar łańcucha(bez kropki) jest mniejszy niż ilosc segmentów, nieużywane segmenty trzeba zgasić, error = cały zgaszony segment
-                    {
-                        sevenSegment[i].Value = "error";
-                        sevenSegment[i].ShowDot = false;
-                    }
+                    RefreshSegment();
                 }
-                RefreshSegment();
+                else
+                {
+                    for (int i = 1; i <= sevenSegment.Length - 1; i++)
+                    {//petla zaczyna sie od 1, ponieważ index 0 to minus który jest dodawany w innej metodzie,
+                        int ron = (i + diff);
+                       
+                        if (i <= valueLength) // sprawdzanie czy liczba powinna być zapalona na segmencie
+                        {
+
+                            sevenSegment[i].ShowDot = false;
+                            if (dott == i) // jeśli numer kropki(index dla segmentu) zgadza się z zmienną inkrementowaną pętli to zapalamy korpka
+                                           //linijka nad ifem jest po to by zgasic kropke gdy np nasza liczba się przesuneła z kropka np z 1,34 na 13,4
+                            {
+                                sevenSegment[i].ShowDot = true;
+                            }
+
+
+                            sevenSegment[i].Value = Char.ToString(valueToParse[i - 1]); // przypisanie z indexu łancucha do segmentu i-1 ponieważ zaczeliśmy
+                                                                                        // z indexem i = 1 (by nie ruszać segmentu od minusa) a nasz index w łancuchu musi sie zaczynac od 0  
+                        }
+                        else
+                        {
+                            sevenSegment[i].Value = "error";
+                            sevenSegment[i].ShowDot = false;
+                        }
+
+                    }
+                    RefreshSegment();
+                }
+                   
             }
 
+        }
+
+        public static string ReverseString(string s)
+        {
+            char[] arr = s.ToCharArray();
+            Array.Reverse(arr);
+            return new string(arr);
         }
         /// <summary>
         /// 

@@ -9,3 +9,14 @@ C:\Users\Kuba\source\repos\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegment.Se
 C:\Users\Kuba\source\repos\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegmentDisplay.csproj.CoreCompileInputs.cache
 C:\Users\Kuba\source\repos\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegment.SevenSegments.resources
 C:\Users\Kuba\source\repos\ClassLibrary2\ClassLibrary2\bin\Debug\SevenSegmentDisplay.xml
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\bin\Debug\SevenSegmentDisplay.xml
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\bin\Debug\SevenSegment.dll
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\bin\Debug\SevenSegment.pdb
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegmentDisplay.csprojAssemblyReference.cache
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegment.SevenSegments.resources
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegment.SevenSegment.resources
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegmentDisplay.csproj.GenerateResource.cache
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegmentDisplay.csproj.CoreCompileInputs.cache
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegmentDisplay.csproj.CopyComplete
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegment.dll
+C:\Users\jakub\Desktop\ClassLibrary2\ClassLibrary2\obj\Debug\SevenSegment.pdb

@@ -19,7 +19,7 @@ namespace SevenSegment
     {
         private int height = 80;
         private int width = 50;
-        private int margin = 6;
+        private int margin = 5;
         private Color background = Color.Black;
         private Color segmentON = Color.Red;
         private Color segmentOFF = Color.Silver;
@@ -62,7 +62,7 @@ namespace SevenSegment
             segmentPoint[3] = new Point[6];
             segmentPoint[4] = new Point[6];
             segmentPoint[5] = new Point[6];
-            segmentPoint[6] = new Point[6];
+            segmentPoint[6] = new Point[7];
             DrawSegment();
         }
         /// <summary>
@@ -93,62 +93,63 @@ namespace SevenSegment
         {
             int halfHeight = height / 2;
             int halfMargin = margin / 2;
+            int marginSeg = 2*margin; // for trapeze shape
 
             //A
             segmentPoint[0][0].X = margin + 1;
             segmentPoint[0][0].Y = 0;
             segmentPoint[0][1].X = width - margin - 1;
             segmentPoint[0][1].Y = 0;
-            segmentPoint[0][2].X = width - margin - 1;
+            segmentPoint[0][2].X = width - margin - 6;
             segmentPoint[0][2].Y = margin;
-            segmentPoint[0][3].X = margin + 1;
+            segmentPoint[0][3].X = margin + 6;
             segmentPoint[0][3].Y = margin;
             segmentPoint[0][4].X = margin + 1;
             segmentPoint[0][4].Y = 0;
 
             //B
             segmentPoint[1][0].X = width - margin;
-            segmentPoint[1][0].Y = margin + 1;
+            segmentPoint[1][0].Y = margin+1+5;
             segmentPoint[1][1].X = width;
             segmentPoint[1][1].Y = margin + 1;
             segmentPoint[1][2].X = width;
             segmentPoint[1][2].Y = halfHeight - halfMargin - 1;
             segmentPoint[1][3].X = width - margin;
-            segmentPoint[1][3].Y = halfHeight - halfMargin - 1;
+            segmentPoint[1][3].Y = halfHeight - margin-halfMargin ;
             segmentPoint[1][4].X = width - margin;
-            segmentPoint[1][4].Y = margin + 1;
+            segmentPoint[1][4].Y = margin+1+5;
 
             //C
             segmentPoint[2][0].X = width - margin;
-            segmentPoint[2][0].Y = halfHeight + halfMargin + 1;
+            segmentPoint[2][0].Y = halfHeight + halfMargin + 6;
             segmentPoint[2][1].X = width;
             segmentPoint[2][1].Y = halfHeight + halfMargin + 1;
             segmentPoint[2][2].X = width;
             segmentPoint[2][2].Y = height - margin - 1;
             segmentPoint[2][3].X = width - margin;
-            segmentPoint[2][3].Y = height - margin - 1;
+            segmentPoint[2][3].Y = height - margin - 6;
             segmentPoint[2][4].X = width - margin;
-            segmentPoint[2][4].Y = halfHeight + halfMargin + 1;
+            segmentPoint[2][4].Y = halfHeight + halfMargin + 6;
 
             // D
-            segmentPoint[3][0].X = margin + 1;
+            segmentPoint[3][0].X = margin + 6;
             segmentPoint[3][0].Y = height - margin;
-            segmentPoint[3][1].X = width - margin - 1;
+            segmentPoint[3][1].X = width - margin - 6;
             segmentPoint[3][1].Y = height - margin;
             segmentPoint[3][2].X = width - margin - 1;
             segmentPoint[3][2].Y = height;
             segmentPoint[3][3].X = margin + 1;
             segmentPoint[3][3].Y = height;
-            segmentPoint[3][4].X = margin + 1;
+            segmentPoint[3][4].X = margin + 1+5;
             segmentPoint[3][4].Y = height - margin;
 
             //E
             segmentPoint[4][0].X = 0;
             segmentPoint[4][0].Y = halfHeight + halfMargin + 1;
             segmentPoint[4][1].X = margin;
-            segmentPoint[4][1].Y = halfHeight + halfMargin + 1;
+            segmentPoint[4][1].Y = halfHeight + halfMargin + 6;
             segmentPoint[4][2].X = margin;
-            segmentPoint[4][2].Y = height - margin - 1;
+            segmentPoint[4][2].Y = height - margin - 7;
             segmentPoint[4][3].X = 0;
             segmentPoint[4][3].Y = height - margin - 1;
             segmentPoint[4][4].X = 0;
@@ -158,25 +159,29 @@ namespace SevenSegment
             segmentPoint[5][0].X = 0;
             segmentPoint[5][0].Y = margin + 1;
             segmentPoint[5][1].X = margin;
-            segmentPoint[5][1].Y = margin + 1;
+            segmentPoint[5][1].Y = margin + 1+5;
             segmentPoint[5][2].X = margin;
-            segmentPoint[5][2].Y = halfHeight - halfMargin - 1;
+            segmentPoint[5][2].Y = halfHeight - halfMargin - 6;
             segmentPoint[5][3].X = 0;
             segmentPoint[5][3].Y = halfHeight - halfMargin - 1;
             segmentPoint[5][4].X = 0;
-            segmentPoint[5][4].Y = margin + 1;
+            segmentPoint[5][4].Y = margin + 1+5;
 
             // G 
-            segmentPoint[6][0].X = margin + 1;
+            segmentPoint[6][0].X = margin + 6;
             segmentPoint[6][0].Y = halfHeight - halfMargin;
-            segmentPoint[6][1].X = width - margin - 1;
+            segmentPoint[6][1].X = width - margin - 6;
             segmentPoint[6][1].Y = halfHeight - halfMargin;
             segmentPoint[6][2].X = width - margin - 1;
-            segmentPoint[6][2].Y = halfHeight + halfMargin;
-            segmentPoint[6][3].X = margin + 1;
+            segmentPoint[6][2].Y = halfHeight;
+            segmentPoint[6][3].X = width - margin - 6;
             segmentPoint[6][3].Y = halfHeight + halfMargin;
-            segmentPoint[6][4].X = margin + 1;
-            segmentPoint[6][4].Y = halfHeight - halfMargin;
+            segmentPoint[6][4].X = margin + 6;
+            segmentPoint[6][4].Y = halfHeight + halfMargin;
+            segmentPoint[6][5].X = margin + 1;
+            segmentPoint[6][5].Y = halfHeight ;
+            segmentPoint[6][6].X = margin + 6;
+            segmentPoint[6][6].Y = halfHeight - halfMargin;
 
        
 
@@ -449,7 +454,7 @@ namespace SevenSegment
             e.Graphics.FillPolygon(ee, segmentPoint[4]);
             e.Graphics.FillPolygon(f, segmentPoint[5]);
             e.Graphics.FillPolygon(g, segmentPoint[6]);
-            e.Graphics.FillEllipse(dotBrush, 0, height - margin+2,  4, margin);
+            e.Graphics.FillEllipse(dotBrush, 1, height - margin-1,  4, margin);
             e.Graphics.EndContainer(containerState);
         }
     }

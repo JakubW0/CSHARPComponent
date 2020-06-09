@@ -103,5 +103,10 @@ namespace SevenSegmentTestComponent
                 }
             }
         }
+
+        private void sevenSegments1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

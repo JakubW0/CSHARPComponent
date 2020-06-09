@@ -111,13 +111,14 @@
             this.sevenSegments1.MinimumSize = new System.Drawing.Size(776, 200);
             this.sevenSegments1.Name = "sevenSegments1";
             this.sevenSegments1.Padd = new System.Windows.Forms.Padding(25);
-            this.sevenSegments1.SegmentOff = System.Drawing.Color.IndianRed;
+            this.sevenSegments1.SegmentOff = System.Drawing.Color.WhiteSmoke;
             this.sevenSegments1.SegmentOn = System.Drawing.Color.Red;
             this.sevenSegments1.SegmentsWidth = 155;
             this.sevenSegments1.Size = new System.Drawing.Size(776, 200);
             this.sevenSegments1.TabIndex = 0;
             this.sevenSegments1.TabStop = false;
             this.sevenSegments1.Value = 12.56D;
+            this.sevenSegments1.Load += new System.EventHandler(this.sevenSegments1_Load);
             // 
             // Form1
             // 
@@ -131,7 +132,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.sevenSegments1);
-            this.MinimumSize = new System.Drawing.Size(978, 268);
+            this.MinimumSize = new System.Drawing.Size(964, 262);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
